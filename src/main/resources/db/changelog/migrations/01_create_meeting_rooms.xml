@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet author="wietse" id="create-meeting-rooms">
+        <createTable tableName="meeting_rooms">
+            <column name="id" type="uuid">
+                <constraints primaryKey="true" primaryKeyName="PK_meeting_room" nullable="false"/>
+            </column>
+            <column name="meeting_room_name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="meeting_room_url" type="varchar">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <insert tableName="meeting_rooms">
+            <column name="id" value="c8c29cff-a631-4a82-a56f-772681d0ff50"/>
+            <column name="meeting_room_name" value="Mars"/>
+            <column name="meeting_room_url" value="https://join.slack.com/share/zt-ho9jlm69-idqiHNozPUOndBxWnl2cZw"/>
+        </insert>
+
+        <insert tableName="meeting_rooms">
+            <column name="id" value="0f638fce-3dda-427b-8041-9a2af8555dd4"/>
+            <column name="meeting_room_name" value="Hallway"/>
+            <column name="meeting_room_url" value="https://google.com"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
