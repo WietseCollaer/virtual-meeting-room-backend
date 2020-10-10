@@ -5,6 +5,7 @@ import com.cegeka.virtualmeetingrooms.entity.User;
 import com.cegeka.virtualmeetingrooms.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
 
 import static com.cegeka.virtualmeetingrooms.entity.User.UserBuilder.aUser;
@@ -27,6 +28,10 @@ public class UserService {
                 .withMeetingRoom(meetingRoomService.findByMeetingRoomName())
                 .build();
         return userRepository.save(userToCreate);
+    }
+
+    public List<User> findAllUsers() {
+        return userRepository.findAll();
     }
 
     public User moveUserToAnotherRoom(User user, UUID newRoomId) {
